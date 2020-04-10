@@ -33,5 +33,5 @@ build_script:
 test_script:
 - if "%BUILD_SYSTEM%" == "CMAKE" popd
 - if "%BUILD_SYSTEM%" == "CMAKE" pushd "%APPVEYOR_BUILD_FOLDER%\build"
-- if "%BUILD_SYSTEM%" == "CMAKE" cmake -V -c "%CONFIGURATION%"
+- if "%BUILD_SYSTEM%" == "CMAKE" ctest -V -c "%CONFIGURATION%"
 - if "%BUILD_SYSTEM%" == "CMAKE" popd
