@@ -24,4 +24,4 @@ addons:
 
 script:
   - if [[ "$BUILD_SYSTEM" == "AUTOTOOLS" ]] ; then ./autogen.sh && ./configure && make -j2 V=1 distcheck; fi
-  - if [[ "$BUILD_SYSTEM" == "CMAKE" ]] ; then mkdir build && pushd build && cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. && cmake --build . ctest -V && popd; fi
+  - if [[ "$BUILD_SYSTEM" == "CMAKE" ]] ; then mkdir build && pushd build && cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. && cmake --build . && ctest -V && popd; fi
