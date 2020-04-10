@@ -30,3 +30,8 @@ build_script:
 - if "%BUILD_SYSTEM%" == "CMAKE" pushd "%APPVEYOR_BUILD_FOLDER%\build"
 - if "%BUILD_SYSTEM%" == "CMAKE" cmake --build . --config "%CONFIGURATION%" -- /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 - if "%BUILD_SYSTEM%" == "CMAKE" popd
+test_script:
+- if "%BUILD_SYSTEM%" == "CMAKE" popd
+- if "%BUILD_SYSTEM%" == "CMAKE" pushd "%APPVEYOR_BUILD_FOLDER%\build"
+- if "%BUILD_SYSTEM%" == "CMAKE" ctest -V
+- if "%BUILD_SYSTEM%" == "CMAKE" popd

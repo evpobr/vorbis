@@ -7,6 +7,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(GNUInstallDirs)
 include(CheckIncludeFiles)
 include(CheckLibraryExists)
+include(CTest)
 
 # Build options
 option(BUILD_SHARED_LIBS "Build shared library" OFF)
@@ -78,3 +79,7 @@ install(
     DESTINATION
     ${CMAKE_INSTALL_LIBDIR}/pkgconfig
 )
+
+if(BUILD_TESTING)
+    add_subdirectory(test)
+endif()
